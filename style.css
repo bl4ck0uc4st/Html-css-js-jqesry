@@ -28,11 +28,23 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    overflow: hidden;
 }
+
+.menu-icon {
+    display: none;
+  }
 
 .logo{
     width: 200px;
 }
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
 
 nav ul li{
     display: inline-block;
@@ -346,27 +358,65 @@ nav .fas{
         display: block;
         font-size: 25px;
     }
-    nav ul{
-        background: #ff004f;
-        position: fixed;
-        top: 0;
-        right: -200px;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-        z-index: 2;
-        transition: right 0.5s;
-    }
-    nav ul li{
+
+    .menu-icon {
         display: block;
-        margin: 25px;
-    }
-    nav ul .fas{
         position: absolute;
-        top: 25px;
-        left: 25px;
+        top: 0;
+        right: 0;
+        background-color: #33333300;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
+        margin-top: 10px;
+      }
+    
+      .menu-icon .bar {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: rgb(255, 255, 255);
+        margin: 10px auto 10px;
+        transition: 0.2s;
+        margin-right: 100px;
+      }
+
+    nav ul {
+        position: absolute;
+        top: 50px;
+        left: -100%;
+        width: 100%;
+        height: 40vh;
+        background-color: #050500;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.3s;
+      }
+    
+    nav ul li{
+        text-align: center;
+        padding: 10px; 
     }
+    nav ul li a {
+        color: white;
+      }
+    
+    nav ul.active {
+        left: 0;
+      }
+    .menu-icon.open .bar:nth-child(1) {
+        transform: rotate(45deg);
+      }
+    
+    .menu-icon.open .bar:nth-child(2) {
+        opacity: 0;
+      }
+    
+    .menu-icon.open .bar:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    
     .sub-title{
         font-size: 40px;
     }
